@@ -8,7 +8,6 @@ const defaultCars = [
         mileage: 4500,
         fuel: "Benzin",
         location: "Bakı",
-        seller: "Emin Məmmədov",
         image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -20,7 +19,6 @@ const defaultCars = [
         mileage: 12000,
         fuel: "Benzin",
         location: "Bakı",
-        seller: "SumCars Premium",
         image: "https://images.unsplash.com/photo-1520050206274-a1ae446cb3cc?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -32,7 +30,6 @@ const defaultCars = [
         mileage: 1500,
         fuel: "Elektro",
         location: "Sumqayıt",
-        seller: "Anar Əliyev",
         image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80"
     }
 ];
@@ -50,14 +47,14 @@ function renderFeaturedCars() {
     const cars = JSON.parse(localStorage.getItem("cars")) || defaultCars;
     
     container.innerHTML = cars.map(car => `
-        <div class="car-card glass">
+        <div class="car-card">
             <div class="car-img-wrapper">
-                <img src="${car.image}" alt="${car.brand}">
-                <button class="fav-btn">❤</button>
+                <img src="${car.image}" alt="${car.brand} ${car.model}">
+                <button class="fav-btn" onclick="toggleFavorite(${car.id})">❤</button>
             </div>
             <div class="car-info">
-                <h3 style="font-size:18px;">${car.brand} ${car.model}</h3>
-                <p style="font-size:13px; color:var(--text-muted);">${car.location}, ${car.year}</p>
+                <h3 class="car-card-title">${car.brand} ${car.model}</h3>
+                <p style="font-size:13px; color:#6e7178; margin-top: 4px;">${car.location}, ${car.year}</p>
                 <div class="car-price">${car.price.toLocaleString()} $</div>
                 <div class="car-specs">
                     <span>⏱ ${car.mileage.toLocaleString()} km</span>
@@ -66,4 +63,8 @@ function renderFeaturedCars() {
             </div>
         </div>
     `).join('');
+}
+
+function toggleFavorite(id) {
+    alert("Avtomobil seçilmişlərə əlavə olundu! (ID: " + id + ")");
 }
