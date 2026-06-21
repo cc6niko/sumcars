@@ -1,241 +1,791 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SumCars — Premium Avtomobil Bazarı</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SumCars — Premium Azerbaijani Automotive Marketplace</title>
+<meta name="description" content="Buy and sell premium vehicles across Azerbaijan. Verified listings, secure payments, and concierge support from Baku to Ganja.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%F0%9F%9A%97%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="bg-grain"></div>
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="header" id="siteHeader">
+  <div class="header__inner">
+    <a href="#" class="logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5 17V9.5a2 2 0 0 1 .6-1.43L7.5 6.2A3 3 0 0 1 9.6 5.3h4.8a3 3 0 0 1 2.1.9l1.9 1.87A2 2 0 0 1 19 9.5V17"/>
+      </svg>
+      <div>
+        <div class="logo__wordmark">Sum<span>Cars</span></div>
+        <div class="logo__tagline">Premium Auto Marketplace</div>
+      </div>
+    </a>
 
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">SUM<span>CARS</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Ana Səhifə</a></li>
-                <li><a href="cars.html">Avtomobillər</a></li>
-                <li><a href="favorites.html" class="nav-fav-btn">Seçilmişlər <span class="fav-count" id="global-fav-count">0</span></a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="login.html" class="btn btn-sm btn-ghost">Daxil Ol</a>
-                <a href="register.html" class="btn btn-sm btn-primary">Qeydiyyat</a>
-            </div>
+    <nav class="nav">
+      <div class="nav__item"><a href="#listings" class="nav__link is-active">Buy</a></div>
+      <div class="nav__item"><a href="#sell" class="nav__link">Sell</a></div>
+      <div class="nav__item">
+        <a href="#" class="nav__link flex flex-gap-2" style="align-items:center;">
+          Dealers
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown">
+          <a class="nav__dropdown-link" href="#">Browse Dealerships</a>
+          <a class="nav__dropdown-link" href="#">Become a Partner Dealer</a>
+          <a class="nav__dropdown-link" href="#">Dealer Dashboard</a>
         </div>
+      </div>
+      <div class="nav__item"><a href="#" class="nav__link">Financing</a></div>
+      <div class="nav__item"><a href="#about" class="nav__link">About</a></div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-eyebrow">Eksklüziv Avtomobil Marketplace</div>
-                    <h1>Mükəmməlliyi Sürün, <br><em>Lüksü Hiss Edin</em></h1>
-                    <p class="hero-sub">SumCars sizə ən prestijli idman və lüks avtomobilləri obsidian, antik qızıl və poladın zərif harmoniyası ilə təqdim edir.</p>
-                    
-                    <div class="hero-cta">
-                        <a href="cars.html" class="btn btn-lg btn-primary">Kataloqu Kəşf Et</a>
-                        <a href="contact.html" class="btn btn-lg btn-outline">Konsultasiya Al</a>
-                    </div>
+    <div class="header__actions">
+      <button class="btn btn--icon btn--ghost" aria-label="Search listings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="btn btn--ghost btn--sm" id="openSignIn">Sign In</button>
+      <button class="btn btn--primary btn--sm">List Your Car</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-                    <div class="hero-trust">
-                        <div>
-                            <b>150+</b>
-                            <span>Premium Avtomobil</span>
-                        </div>
-                        <div>
-                            <b>12K+</b>
-                            <span>Məmnun Müştəri</span>
-                        </div>
-                        <div>
-                            <b>5 ★</b>
-                            <span>Ulduzlu Xidmət</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav">
+  <a class="mobile-nav__link" href="#listings">Buy</a>
+  <a class="mobile-nav__link" href="#sell">Sell</a>
+  <a class="mobile-nav__link" href="#">Dealers</a>
+  <a class="mobile-nav__link" href="#">Financing</a>
+  <a class="mobile-nav__link" href="#about">About</a>
+  <div class="flex flex-gap-3 mt-8">
+    <button class="btn btn--secondary btn--full">Sign In</button>
+    <button class="btn btn--primary btn--full">List Your Car</button>
+  </div>
+</nav>
 
-                <div class="hero-visual">
-                    <div class="hero-visual-card">
-                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Porsche 911">
-                        <div class="hero-visual-tag">
-                            <div>
-                                <b>Porsche 911 Turbo S</b>
-                                <span>Bakı, 2023</span>
-                            </div>
-                            <div class="price">245,000 $</div>
-                        </div>
-                    </div>
-                    <div class="hero-float-badge">
-                        <b>0%</b>
-                        <span>Komissiya</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero__bg">
+    <img class="hero__bg-img" src="https://placehold.co/1920x1080/0a0f1a/0a0f1a" alt="">
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="glow-blob glow-blob--gold" style="width:560px;height:560px;top:-160px;left:-160px;"></div>
+  <div class="glow-blob glow-blob--blue" style="width:480px;height:480px;bottom:-120px;right:-120px;"></div>
 
-    <div class="container hero-search-wrap">
-        <div class="search-panel glass">
-            <form id="home-search-form" class="search-grid">
-                <div class="search-field">
-                    <label>Marka</label>
-                    <select id="search-brand">
-                        <option value="">Hamısı</option>
-                        <option value="Porsche">Porsche</option>
-                        <option value="Mercedes-Benz">Mercedes-Benz</option>
-                        <option value="Audi">Audi</option>
-                    </select>
-                </div>
-                <div class="search-field">
-                    <label>Yanacaq</label>
-                    <select id="search-fuel">
-                        <option value="">Hamısı</option>
-                        <option value="Benzin">Benzin</option>
-                        <option value="Elektro">Elektro</option>
-                    </select>
-                </div>
-                <div class="search-field">
-                    <label>Maksimum Qiymət ($)</label>
-                    <input type="number" id="search-price" placeholder="Məs. 300000">
-                </div>
-                <div class="search-field">
-                    <label>Şəhər</label>
-                    <input type="text" id="search-location" placeholder="Məs. Bakı">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Axtar</button>
-            </form>
-        </div>
+  <div class="hero__content">
+    <div class="hero__eyebrow"><span class="eyebrow">Azerbaijan's Premier Auto Marketplace</span></div>
+    <h1 class="hero__title">Find Your Next <span class="text-shimmer">Dream Car</span></h1>
+    <p class="hero__sub">12,400+ verified listings from trusted dealers and private sellers across Baku, Ganja, and Sumgayit. Buy with confidence, sell in minutes.</p>
+
+    <div class="search-bar" style="max-width:760px; margin-inline:auto;">
+      <div class="input-wrapper flex-gap-2" style="flex:1; display:flex; align-items:center;">
+        <span class="input-wrapper__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input class="input search-bar__input" type="text" placeholder="Search by make, model, or keyword…">
+      </div>
+      <select class="select" style="max-width:170px;" aria-label="Body type">
+        <option value="">Body Type</option>
+        <option>Sedan</option>
+        <option>SUV</option>
+        <option>Coupe</option>
+        <option>Electric</option>
+      </select>
+      <button class="btn btn--primary btn--lg search-bar__btn">Search</button>
     </div>
 
-    <section class="container section-tight">
-        <div class="brand-strip">
-            <span>PORSCHE</span>
-            <span>MERCEDES-BENZ</span>
-            <span>AUDI</span>
-            <span>BMW</span>
-            <span>ASTON MARTIN</span>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="gauge-divider">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <i></i>
-        </div>
+    <div class="hero__actions">
+      <button class="btn btn--secondary btn--lg">Browse Inventory</button>
+      <button class="btn btn--ghost btn--lg">How It Works</button>
     </div>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-header center">
-                <div class="eyebrow">Kolleksiya</div>
-                <h2 class="section-title">Premium <span>Təkliflər</span></h2>
-                <p class="section-sub">Ən son əlavə olunan və eksklüziv şərtlərlə təqdim edilən lüks avtomobillər.</p>
-            </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <div class="hero__stat-value">12,400+</div>
+        <div class="hero__stat-label">Active Listings</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">850+</div>
+        <div class="hero__stat-label">Verified Dealers</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">24</div>
+        <div class="hero__stat-label">Cities Covered</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">98%</div>
+        <div class="hero__stat-label">Buyer Satisfaction</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="car-grid" id="featured-cars-container">
-                </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRAND STRIP
+============================================================ -->
+<section class="section--sm">
+  <div class="container">
+    <p class="eyebrow" style="display:block; text-align:center; margin-bottom:var(--space-6);">Listings from leading manufacturers</p>
+    <div class="brand-strip">
+      <div class="brand-strip__item">BMW</div>
+      <div class="brand-strip__item">Mercedes-Benz</div>
+      <div class="brand-strip__item">Toyota</div>
+      <div class="brand-strip__item">Lexus</div>
+      <div class="brand-strip__item">Porsche</div>
+      <div class="brand-strip__item">Audi</div>
+      <div class="brand-strip__item">Range Rover</div>
+      <div class="brand-strip__item">Hyundai</div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============================================================
+     FEATURED LISTINGS
+============================================================ -->
+<section class="section" id="listings">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Featured <em>Listings</em></h2>
+        <p class="section-lead">Hand-picked vehicles, inspected and verified by the SumCars team this week.</p>
+      </div>
+      <div class="flex flex-gap-3">
+        <select class="select sort-select" aria-label="Sort listings">
+          <option>Sort: Recommended</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Mileage: Lowest First</option>
+          <option>Newest First</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-toggle__btn is-active" aria-label="Grid view">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-toggle__btn" aria-label="List view">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header center">
-                <div class="eyebrow">Üstünlüklər</div>
-                <h2 class="section-title">Niyə <span>Biz?</span></h2>
-            </div>
-            
-            <div class="why-grid">
-                <div class="why-card glass">
-                    <div class="why-icon">⚡</div>
-                    <h4>Sürətli Sənədləşmə</h4>
-                    <p>Bütün alqı-satqı və qeydiyyat prosesləri cəmi 1 saat daxilində tam qanuni şəkildə tamamlanır.</p>
-                </div>
-                <div class="why-card glass">
-                    <div class="why-icon">🛡️</div>
-                    <h4>Tam Şəffaflıq</h4>
-                    <p>Hər bir avtomobil satışa çıxarılmazdan əvvəl 150 nöqtədən peşəkar diaqnostika keçir.</p>
-                </div>
-                <div class="why-card glass">
-                    <div class="why-icon">💎</div>
-                    <h4>Eksklüziv Şərtlər</h4>
-                    <p>Daxili və xüsusi lizinq proqramları ilə premium avtomobillərə daha rahat sahib olun.</p>
-                </div>
-                <div class="why-card glass">
-                    <div class="why-icon">🤝</div>
-                    <h4>Fərdi Menecer</h4>
-                    <p>Hər bir müştərimizə alış prosesindən sonrakı xidmətlərə qədər xüsusi dəstək ayrılır.</p>
-                </div>
-            </div>
+    <div class="grid grid--cars stagger-children is-visible">
+
+      <!-- Card 1 -->
+      <article class="car-card is-featured">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=BMW+750Li" alt="2023 BMW 7 Series 750Li">
+          <div class="car-card__badges">
+            <span class="badge badge--featured">Featured</span>
+            <span class="badge badge--verified">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+              Verified
+            </span>
+          </div>
+          <button class="car-card__wishlist is-saved" aria-label="Remove from wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-header center">
-                <div class="eyebrow">Rəylər</div>
-                <h2 class="section-title">Müştəri <span>Sözləri</span></h2>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">BMW 7 Series 750Li</h3>
+              <div class="car-card__subtitle">2023 · Baku, Azerbaijan</div>
             </div>
-
-            <div class="testimonial-grid">
-                <div class="testimonial-card glass">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"SumCars-dan Porsche 911 aldım. Sənədləşmədən tutmuş qarşılanmaya qədər hər şey əsl premium səviyyədə idi."</p>
-                    <div class="testimonial-author">
-                        <div class="mini-avatar">EM</div>
-                        <div>
-                            <b>Emin Məmmədov</b>
-                            <span>Biznesmen</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card glass">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"Azərbaycanda lüks avtomobil bazarında belə bir rəqəmsal təcrübə yox idi. Dizayn sistemindən tutmuş xidmətə qədər möhtəşəmdir."</p>
-                    <div class="testimonial-author">
-                        <div class="mini-avatar">AH</div>
-                        <div>
-                            <b>Arzu Hüseynova</b>
-                            <span>Bloqer / İnvestor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card glass">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"Şəffaflıq və diaqnostika hesabatı mənə çox güvən verdi. G63 AMG modelini tam arxayınlıqla təhvil aldım."</p>
-                    <div class="testimonial-author">
-                        <div class="mini-avatar">FR</div>
-                        <div>
-                            <b>Fərid Rəsulov</b>
-                            <span>IT Direktor</span>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <div class="car-card__price">189,500 ₼</div>
+              <span class="car-card__price-label">≈ 3,150 ₼/mo</span>
             </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">8,200 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Petrol</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Auto</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=BP" alt=""></span>
+              <span>Baku Premium Motors</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
         </div>
-    </section>
+      </article>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="nav-logo">SUM<span>CARS</span></a>
-                    <p style="margin-top:15px; max-width: 320px;">Azərbaycanın ən prestijli premium avtomobil platforması. Obsidian dizayn və lüks xidmət.</p>
-                </div>
-                <div class="footer-col" style="display: flex; gap: 30px;">
-                    <a href="cars.html" style="color: var(--text-dim);">Avtomobillər</a>
-                    <a href="favorites.html" style="color: var(--text-dim);">Seçilmişlər</a>
-                    <a href="contact.html" style="color: var(--text-dim);">Əlaqə</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 SumCars. Bütün hüquqlar qorunur.</p>
-            </div>
+      <!-- Card 2 -->
+      <article class="car-card">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=Land+Cruiser" alt="2022 Toyota Land Cruiser 300">
+          <div class="car-card__badges">
+            <span class="badge badge--new">New</span>
+            <span class="badge badge--verified">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+              Verified
+            </span>
+          </div>
+          <button class="car-card__wishlist" aria-label="Add to wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
         </div>
-    </footer>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">Toyota Land Cruiser 300</h3>
+              <div class="car-card__subtitle">2022 · Ganja, Azerbaijan</div>
+            </div>
+            <div>
+              <div class="car-card__price">142,000 ₼</div>
+              <span class="car-card__price-label">≈ 2,360 ₼/mo</span>
+            </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">21,400 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Diesel</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Auto</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=GA" alt=""></span>
+              <span>Ganja Auto Hub</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </article>
 
-    <script src="app.js"></script>
+      <!-- Card 3 -->
+      <article class="car-card">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=Porsche+Taycan" alt="2024 Porsche Taycan 4S">
+          <div class="car-card__badges">
+            <span class="badge badge--hot">Hot Deal</span>
+          </div>
+          <button class="car-card__wishlist" aria-label="Add to wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
+        </div>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">Porsche Taycan 4S</h3>
+              <div class="car-card__subtitle">2024 · Baku, Azerbaijan</div>
+            </div>
+            <div>
+              <div class="car-card__price">216,900 ₼</div>
+              <span class="car-card__price-label">≈ 3,610 ₼/mo</span>
+            </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">3,100 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Electric</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Auto</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=EL" alt=""></span>
+              <span>ElitDrive Baku</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="car-card">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=Lexus+RX350" alt="2021 Lexus RX 350">
+          <div class="car-card__badges">
+            <span class="badge badge--used">Used</span>
+            <span class="badge badge--verified">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+              Verified
+            </span>
+          </div>
+          <button class="car-card__wishlist" aria-label="Add to wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
+        </div>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">Lexus RX 350</h3>
+              <div class="car-card__subtitle">2021 · Sumgayit, Azerbaijan</div>
+            </div>
+            <div>
+              <div class="car-card__price">98,400 ₼</div>
+              <span class="car-card__price-label">≈ 1,640 ₼/mo</span>
+            </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">38,900 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Hybrid</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Auto</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=SU" alt=""></span>
+              <span>Sumgayit Motors</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="car-card">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=Mercedes+E300" alt="2023 Mercedes-Benz E300">
+          <div class="car-card__badges">
+            <span class="badge badge--new">New</span>
+          </div>
+          <button class="car-card__wishlist" aria-label="Add to wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
+        </div>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">Mercedes-Benz E300</h3>
+              <div class="car-card__subtitle">2023 · Baku, Azerbaijan</div>
+            </div>
+            <div>
+              <div class="car-card__price">126,750 ₼</div>
+              <span class="car-card__price-label">≈ 2,110 ₼/mo</span>
+            </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">5,600 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Petrol</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Auto</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=BP" alt=""></span>
+              <span>Baku Premium Motors</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="car-card">
+        <div class="car-card__media">
+          <img class="car-card__img" src="https://placehold.co/800x500/1a2235/5c6b82?text=Hyundai+Tucson" alt="2022 Hyundai Tucson">
+          <div class="car-card__badges">
+            <span class="badge badge--used">Used</span>
+            <span class="badge badge--verified">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+              Verified
+            </span>
+          </div>
+          <button class="car-card__wishlist" aria-label="Add to wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          </button>
+        </div>
+        <div class="car-card__body">
+          <div class="car-card__header">
+            <div>
+              <h3 class="car-card__title">Hyundai Tucson</h3>
+              <div class="car-card__subtitle">2022 · Mingachevir, Azerbaijan</div>
+            </div>
+            <div>
+              <div class="car-card__price">52,300 ₼</div>
+              <span class="car-card__price-label">≈ 870 ₼/mo</span>
+            </div>
+          </div>
+          <div class="car-card__specs">
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14 16 8"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+              <span class="spec-item__value">29,750 km</span>
+              <span class="spec-item__label">Mileage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22h12"/><path d="M4 9h9"/><path d="M14 22V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v18"/><path d="M14 13h2.5a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 3 0V8.5L17 5"/></svg></span>
+              <span class="spec-item__value">Petrol</span>
+              <span class="spec-item__label">Fuel</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></span>
+              <span class="spec-item__value">Manual</span>
+              <span class="spec-item__label">Transmission</span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <div class="car-card__seller">
+              <span class="car-card__seller-avatar"><img src="https://placehold.co/48x48/141c2e/c9a84c?text=MG" alt=""></span>
+              <span>Mingachevir Auto</span>
+            </div>
+            <span class="stars">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pagination">
+      <button class="page-btn" disabled aria-label="Previous page">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="page-btn is-active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">12</button>
+      <button class="page-btn" aria-label="Next page">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BROWSE BY BODY TYPE
+============================================================ -->
+<section class="section section--sm">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Browse by <em>Body Type</em></h2>
+        <p class="section-lead">Jump straight to the category you're looking for.</p>
+      </div>
+    </div>
+    <div class="grid grid--4">
+      <a href="#" class="card flex flex-gap-3 p-6" style="flex-direction:column; align-items:center; text-align:center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3 17V11l2-5h12l3 5v6"/></svg>
+        <span class="text-md" style="font-weight:600;">SUV</span>
+        <span class="text-xs text-muted">3,210 listings</span>
+      </a>
+      <a href="#" class="card flex flex-gap-3 p-6" style="flex-direction:column; align-items:center; text-align:center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5 17V9.5a2 2 0 0 1 .6-1.43L7.5 6.2A3 3 0 0 1 9.6 5.3h4.8a3 3 0 0 1 2.1.9l1.9 1.87A2 2 0 0 1 19 9.5V17"/></svg>
+        <span class="text-md" style="font-weight:600;">Sedan</span>
+        <span class="text-xs text-muted">4,870 listings</span>
+      </a>
+      <a href="#" class="card flex flex-gap-3 p-6" style="flex-direction:column; align-items:center; text-align:center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM4 17l1.5-6.5A2 2 0 0 1 7.4 9h9.2a2 2 0 0 1 1.9 1.5L20 17"/></svg>
+        <span class="text-md" style="font-weight:600;">Coupe</span>
+        <span class="text-xs text-muted">1,140 listings</span>
+      </a>
+      <a href="#" class="card flex flex-gap-3 p-6" style="flex-direction:column; align-items:center; text-align:center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+        <span class="text-md" style="font-weight:600;">Electric</span>
+        <span class="text-xs text-muted">980 listings</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE SUMCARS
+============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="justify-content:center; text-align:center;">
+      <div style="margin-inline:auto;">
+        <h2 class="section-title">Why Choose <em>SumCars</em></h2>
+        <p class="section-lead" style="margin-inline:auto;">Built on trust, backed by technology, and made for Azerbaijan's roads.</p>
+      </div>
+    </div>
+    <div class="grid grid--4">
+      <div class="card glass--surface flex flex-gap-3 p-6" style="flex-direction:column;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3 class="text-md" style="font-weight:600;">Verified Listings</h3>
+        <p class="text-sm text-secondary">Every vehicle undergoes a 120-point inspection before it goes live.</p>
+      </div>
+      <div class="card glass--surface flex flex-gap-3 p-6" style="flex-direction:column;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3 class="text-md" style="font-weight:600;">Secure Payments</h3>
+        <p class="text-sm text-secondary">Escrow-protected transactions keep your funds safe until delivery.</p>
+      </div>
+      <div class="card glass--surface flex flex-gap-3 p-6" style="flex-direction:column;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        <h3 class="text-md" style="font-weight:600;">24/7 Concierge</h3>
+        <p class="text-sm text-secondary">Our team is on call in Azerbaijani, Russian, and English, around the clock.</p>
+      </div>
+      <div class="card glass--surface flex flex-gap-3 p-6" style="flex-direction:column;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M14 9h4l4 4v4h-4"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        <h3 class="text-md" style="font-weight:600;">Nationwide Delivery</h3>
+        <p class="text-sm text-secondary">From Baku to Ganja, we bring the car straight to your doorstep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SELL YOUR CAR — CTA
+============================================================ -->
+<section class="section" id="sell">
+  <div class="container">
+    <div class="glass glass--gold" style="position:relative; overflow:hidden; padding:var(--space-16) var(--space-8); text-align:center;">
+      <div class="glow-blob glow-blob--blue" style="width:420px; height:420px; top:-140px; right:-100px;"></div>
+      <span class="eyebrow">Sell With Confidence</span>
+      <h2 class="section-title mt-4">Turn Your Car Into <em>Cash</em> Today</h2>
+      <p class="section-lead" style="margin-inline:auto; text-align:center;">Get a free instant valuation, list in under five minutes, and connect with thousands of verified buyers across Azerbaijan.</p>
+      <div class="flex flex-center flex-gap-4 mt-8" style="flex-wrap:wrap; position:relative; z-index:1;">
+        <button class="btn btn--primary btn--xl">List Your Car</button>
+        <button class="btn btn--ghost btn--xl">Get Free Valuation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header" style="justify-content:center; text-align:center;">
+      <div style="margin-inline:auto;">
+        <h2 class="section-title">What Our <em>Customers</em> Say</h2>
+        <p class="section-lead" style="margin-inline:auto;">Real stories from buyers and sellers across the country.</p>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      <div class="review-card">
+        <p class="review-card__text">"I found my BMW within three days and the inspection report gave me total peace of mind. Smoothest car purchase I've ever made."</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar"><img src="https://placehold.co/96x96/141c2e/c9a84c?text=RA" alt=""></span>
+          <div>
+            <div class="review-card__name">Rashad Aliyev</div>
+            <div class="review-card__role">Buyer, Baku</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <p class="review-card__text">"Listed my Lexus on a Monday, had three serious offers by Wednesday. The escrow payment made everything feel safe."</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar"><img src="https://placehold.co/96x96/141c2e/c9a84c?text=NM" alt=""></span>
+          <div>
+            <div class="review-card__name">Nigar Mammadova</div>
+            <div class="review-card__role">Seller, Ganja</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <p class="review-card__text">"As a dealership, SumCars tripled our online inquiries. The dealer dashboard makes managing inventory effortless."</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar"><img src="https://placehold.co/96x96/141c2e/c9a84c?text=EH" alt=""></span>
+          <div>
+            <div class="review-card__name">Elvin Huseynov</div>
+            <div class="review-card__role">Owner, Sumgayit Motors</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="logo__wordmark">Sum<span>Cars</span></div>
+        <p class="footer__tagline">Azerbaijan's most trusted destination for buying and selling premium vehicles.</p>
+        <div class="footer__social">
+          <a class="social-btn" href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.6l.4-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a class="social-btn" href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a class="social-btn" href="#" aria-label="X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M20 4 4 20"/></svg>
+          </a>
+          <a class="social-btn" href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Marketplace</div>
+        <div class="footer__links">
+          <a class="footer__link" href="#listings">Browse Cars</a>
+          <a class="footer__link" href="#sell">Sell Your Car</a>
+          <a class="footer__link" href="#">Dealer Directory</a>
+          <a class="footer__link" href="#">Financing</a>
+          <a class="footer__link" href="#">Car Valuation</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <div class="footer__links">
+          <a class="footer__link" href="#about">About Us</a>
+          <a class="footer__link" href="#">Careers</a>
+          <a class="footer__link" href="#">Press</a>
+          <a class="footer__link" href="#">Partnerships</a>
+          <a class="footer__link" href="#">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Support</div>
+        <div class="footer__links">
+          <a class="footer__link" href="#">Help Center</a>
+          <a class="footer__link" href="#">Contact Us</a>
+          <a class="footer__link" href="#">Buyer Protection</a>
+          <a class="footer__link" href="#">Report a Listing</a>
+          <a class="footer__link" href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 SumCars. All rights reserved.</p>
+      <div class="footer__legal">
+        <a class="footer__legal-link" href="#">Privacy Policy</a>
+        <a class="footer__legal-link" href="#">Terms of Service</a>
+        <a class="footer__legal-link" href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     TOAST CONTAINER (populated by js/app.js)
+============================================================ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============================================================
+     SIGN IN MODAL
+============================================================ -->
+<div class="modal-backdrop" id="signInModal">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 class="modal__title">Welcome Back</h3>
+      <button class="btn btn--icon btn--ghost" id="closeSignInModal" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="form-group">
+        <label class="form-label form-label--required" for="signInEmail">Email</label>
+        <input class="input" id="signInEmail" type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group mt-4">
+        <label class="form-label form-label--required" for="signInPassword">Password</label>
+        <input class="input" id="signInPassword" type="password" placeholder="••••••••">
+      </div>
+      <p class="form-help mt-2">By continuing, you agree to SumCars' Terms of Service and Privacy Policy.</p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" id="cancelSignIn">Cancel</button>
+      <button class="btn btn--primary">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>
