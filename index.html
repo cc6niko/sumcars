@@ -3,37 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SumCars | Premium Avtomobil Marketplace</title>
+    <title>SumCars — Premium Avtomobil Bazarı</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="bg-grain"></div>
+
     <nav class="navbar">
-        <a href="index.html" class="logo">SUM<span>CARS</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Ana Səhifə</a></li>
-            <li><a href="cars.html">Avtomobillər</a></li>
-            <li><a href="favorites.html">Seçilmişlər</a></li>
-            <li><a href="contact.html">Əlaqə</a></li>
-        </ul>
-        <div class="nav-auth" id="auth-area">
-            <a href="login.html" class="btn-nav btn-login">Daxil Ol</a>
-            <a href="register.html" class="btn-nav btn-premium">Qeydiyyat</a>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">SUM<span>CARS</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Ana Səhifə</a></li>
+                <li><a href="cars.html">Avtomobillər</a></li>
+                <li><a href="favorites.html" class="nav-fav-btn">Seçilmişlər <span class="fav-count" id="global-fav-count">0</span></a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-sm btn-ghost">Daxil Ol</a>
+                <a href="register.html" class="btn btn-sm btn-primary">Qeydiyyat</a>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Mükəmməlliyi Sürün,<br><span>Lüksü Hiss Edin</span></h1>
-            <p>SumCars sizə ən eksklüziv idman və lüks avtomobilləri ən premium şərtlərlə təqdim edir. Obsidian və antik qızılın harmoniyasını yolda hiss edin.</p>
-            <a href="cars.html" class="btn-nav btn-premium" style="padding: 16px 36px; font-size:16px;">Kataloqu Kəşf Et</a>
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">Eksklüziv Avtomobil Marketplace</div>
+                    <h1>Mükəmməlliyi Sürün, <br><em>Lüksü Hiss Edin</em></h1>
+                    <p class="hero-sub">SumCars sizə ən prestijli idman və lüks avtomobilləri obsidian, antik qızıl və poladın zərif harmoniyası ilə təqdim edir.</p>
+                    
+                    <div class="hero-cta">
+                        <a href="cars.html" class="btn btn-lg btn-primary">Kataloqu Kəşf Et</a>
+                        <a href="contact.html" class="btn btn-lg btn-outline">Konsultasiya Al</a>
+                    </div>
+
+                    <div class="hero-trust">
+                        <div>
+                            <b>150+</b>
+                            <span>Premium Avtomobil</span>
+                        </div>
+                        <div>
+                            <b>12K+</b>
+                            <span>Məmnun Müştəri</span>
+                        </div>
+                        <div>
+                            <b>5 ★</b>
+                            <span>Ulduzlu Xidmət</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-visual-card">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Porsche 911">
+                        <div class="hero-visual-tag">
+                            <div>
+                                <b>Porsche 911 Turbo S</b>
+                                <span>Bakı, 2023</span>
+                            </div>
+                            <div class="price">245,000 $</div>
+                        </div>
+                    </div>
+                    <div class="hero-float-badge">
+                        <b>0%</b>
+                        <span>Komissiya</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="section" style="padding-top: 0; padding-bottom: 20px;">
-        <div class="search-container glass">
+    <div class="container hero-search-wrap">
+        <div class="search-panel glass">
             <form id="home-search-form" class="search-grid">
-                <div class="search-box">
+                <div class="search-field">
                     <label>Marka</label>
                     <select id="search-brand">
                         <option value="">Hamısı</option>
@@ -42,54 +88,151 @@
                         <option value="Audi">Audi</option>
                     </select>
                 </div>
-                <div class="search-box">
-                    <label>Maksimum Qiymət ($)</label>
-                    <input type="number" id="search-price" placeholder="Məs. 250000">
+                <div class="search-field">
+                    <label>Yanacaq</label>
+                    <select id="search-fuel">
+                        <option value="">Hamısı</option>
+                        <option value="Benzin">Benzin</option>
+                        <option value="Elektro">Elektro</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn-search">Axtar</button>
+                <div class="search-field">
+                    <label>Maksimum Qiymət ($)</label>
+                    <input type="number" id="search-price" placeholder="Məs. 300000">
+                </div>
+                <div class="search-field">
+                    <label>Şəhər</label>
+                    <input type="text" id="search-location" placeholder="Məs. Bakı">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Axtar</button>
             </form>
         </div>
     </div>
 
-    <section class="section">
-        <div class="section-title">
-            <h2>Premium <span>Təkliflər</span></h2>
-            <p>Ən son yüklənən eksklüziv avtomobillər</p>
+    <section class="container section-tight">
+        <div class="brand-strip">
+            <span>PORSCHE</span>
+            <span>MERCEDES-BENZ</span>
+            <span>AUDI</span>
+            <span>BMW</span>
+            <span>ASTON MARTIN</span>
         </div>
-        <div class="car-grid" id="featured-cars-container">
-            </div>
     </section>
 
-    <section class="section glass" style="margin: 0 8%; border-radius: 26px; padding: 20px 0;">
-        <div class="stats-grid">
-            <div class="stat-box">
-                <h3>150+</h3>
-                <p>Premium Avtomobil</p>
+    <div class="container">
+        <div class="gauge-divider">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <i></i>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <div class="eyebrow">Kolleksiya</div>
+                <h2 class="section-title">Premium <span>Təkliflər</span></h2>
+                <p class="section-sub">Ən son əlavə olunan və eksklüziv şərtlərlə təqdim edilən lüks avtomobillər.</p>
             </div>
-            <div class="stat-box">
-                <h3>12K+</h3>
-                <p>Məmnun Müştəri</p>
+
+            <div class="car-grid" id="featured-cars-container">
+                </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header center">
+                <div class="eyebrow">Üstünlüklər</div>
+                <h2 class="section-title">Niyə <span>Biz?</span></h2>
             </div>
-            <div class="stat-box">
-                <h3>5 ★</h3>
-                <p>Ulduzlu Xidmət</p>
+            
+            <div class="why-grid">
+                <div class="why-card glass">
+                    <div class="why-icon">⚡</div>
+                    <h4>Sürətli Sənədləşmə</h4>
+                    <p>Bütün alqı-satqı və qeydiyyat prosesləri cəmi 1 saat daxilində tam qanuni şəkildə tamamlanır.</p>
+                </div>
+                <div class="why-card glass">
+                    <div class="why-icon">🛡️</div>
+                    <h4>Tam Şəffaflıq</h4>
+                    <p>Hər bir avtomobil satışa çıxarılmazdan əvvəl 150 nöqtədən peşəkar diaqnostika keçir.</p>
+                </div>
+                <div class="why-card glass">
+                    <div class="why-icon">💎</div>
+                    <h4>Eksklüziv Şərtlər</h4>
+                    <p>Daxili və xüsusi lizinq proqramları ilə premium avtomobillərə daha rahat sahib olun.</p>
+                </div>
+                <div class="why-card glass">
+                    <div class="why-icon">🤝</div>
+                    <h4>Fərdi Menecer</h4>
+                    <p>Hər bir müştərimizə alış prosesindən sonrakı xidmətlərə qədər xüsusi dəstək ayrılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <div class="eyebrow">Rəylər</div>
+                <h2 class="section-title">Müştəri <span>Sözləri</span></h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card glass">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"SumCars-dan Porsche 911 aldım. Sənədləşmədən tutmuş qarşılanmaya qədər hər şey əsl premium səviyyədə idi."</p>
+                    <div class="testimonial-author">
+                        <div class="mini-avatar">EM</div>
+                        <div>
+                            <b>Emin Məmmədov</b>
+                            <span>Biznesmen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Azərbaycanda lüks avtomobil bazarında belə bir rəqəmsal təcrübə yox idi. Dizayn sistemindən tutmuş xidmətə qədər möhtəşəmdir."</p>
+                    <div class="testimonial-author">
+                        <div class="mini-avatar">AH</div>
+                        <div>
+                            <b>Arzu Hüseynova</b>
+                            <span>Bloqer / İnvestor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Şəffaflıq və diaqnostika hesabatı mənə çox güvən verdi. G63 AMG modelini tam arxayınlıqla təhvil aldım."</p>
+                    <div class="testimonial-author">
+                        <div class="mini-avatar">FR</div>
+                        <div>
+                            <b>Fərid Rəsulov</b>
+                            <span>IT Direktor</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="#" class="logo">SUM<span>CARS</span></a>
-                <p style="margin-top:15px; color:#6e7178; font-size: 14px;">Azərbaycanın ən prestijli premium avtomobil platforması.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="nav-logo">SUM<span>CARS</span></a>
+                    <p style="margin-top:15px; max-width: 320px;">Azərbaycanın ən prestijli premium avtomobil platforması. Obsidian dizayn və lüks xidmət.</p>
+                </div>
+                <div class="footer-col" style="display: flex; gap: 30px;">
+                    <a href="cars.html" style="color: var(--text-dim);">Avtomobillər</a>
+                    <a href="favorites.html" style="color: var(--text-dim);">Seçilmişlər</a>
+                    <a href="contact.html" style="color: var(--text-dim);">Əlaqə</a>
+                </div>
             </div>
-            <div class="footer-col" style="display: flex; gap: 20px;">
-                <a href="cars.html" style="color: #a8abb3; font-size: 14px;">Avtomobillər</a>
-                <a href="contact.html" style="color: #a8abb3; font-size: 14px;">Əlaqə</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SumCars. Bütün hüquqlar qorunur.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SumCars. Bütün hüquqlar qorunur.</p>
         </div>
     </footer>
 
