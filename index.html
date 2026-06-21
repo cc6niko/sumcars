@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SumCars | Premium Avtomobil Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">SUM<span>CARS</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Ana Səhifə</a></li>
+            <li><a href="cars.html">Avtomobillər</a></li>
+            <li><a href="favorites.html">Seçilmişlər</a></li>
+            <li><a href="contact.html">Əlaqə</a></li>
+        </ul>
+        <div class="nav-auth" id="auth-area">
+            <a href="login.html" class="btn-nav btn-login">Daxil Ol</a>
+            <a href="register.html" class="btn-nav btn-premium">Qeydiyyat</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mükəmməlliyi Sürün,<br><span>Lüksü Hiss Edin</span></h1>
+            <p>SumCars sizə ən eksklüziv idman və lüks avtomobilləri ən premium şərtlərlə təqdim edir.</p>
+            <a href="cars.html" class="btn-nav btn-premium" style="padding: 15px 40px; font-size:16px;">Kataloqu Kəşf Et</a>
+        </div>
+    </section>
+
+    <div class="section" style="padding-top: 0; padding-bottom: 20px;">
+        <div class="search-container glass">
+            <form id="home-search-form" class="search-grid">
+                <div class="search-box">
+                    <label>Marka</label>
+                    <select id="search-brand">
+                        <option value="">Hamısı</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Audi">Audi</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <label>Maksimum Qiymət ($)</label>
+                    <input type="number" id="search-price" placeholder="Məs. 200000">
+                </div>
+                <button type="submit" class="btn-search">Axtar</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Premium <span>Təkliflər</span></h2>
+            <p>Ən son yüklənən eksklüziv avtomobillər</p>
+        </div>
+        <div class="car-grid" id="featured-cars-container">
+            </div>
+    </section>
+
+    <section class="section glass" style="margin: 0 8%; border-radius: 20px;">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>150+</h3>
+                <p>Premium Avtomobil</p>
+            </div>
+            <div class="stat-box">
+                <h3>12K+</h3>
+                <p>Məmnun Müştəri</p>
+            </div>
+            <div class="stat-box">
+                <h3>5</h3>
+                <p>Ulduzlu Xidmət</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo">SUM<span>CARS</span></a>
+                <p style="margin-top:15px; color:var(--text-muted);">Azərbaycanın ən prestijli premium avtomobil platforması.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Keçidlər</h4>
+                <ul>
+                    <li><a href="cars.html">Avtomobillər</a></li>
+                    <li><a href="add-car.html">Elan Yerləşdir</a></li>
+                    <li><a href="contact.html">Əlaqə</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SumCars. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
